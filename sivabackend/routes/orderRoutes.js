@@ -3,7 +3,6 @@ const router = express.Router();
 const Order = require("../models/Order");
 const nodemailer = require("nodemailer");
 
-// POST /api/orders
 router.post("/", async (req, res) => {
   try {
     const { items, total, customerEmail } = req.body;
@@ -11,22 +10,23 @@ router.post("/", async (req, res) => {
     if (!items || items.length === 0) {
       return res.status(400).json({ message: "Cart is empty ☕" });
     }
-
-    // Save order
+    ;
     const order = new Order({ items, total });
     await order.save();
 
-    // ✉️ EMAIL SEND
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "YOUR_GMAIL@gmail.com",
-        pass: "GMAIL_APP_PASSWORD"
+        user: "jspavithra20@gmail.com",
+        pass: "zvsbotbyseotqcvr"
       }
     });
+    if (!customerEmail) {
+  return res.status(400).json({ message: "Customer email required 📧" });
+}
 
     await transporter.sendMail({
-      from: "Sip Serenity ☕ <YOUR_GMAIL@gmail.com>",
+      from: "Sip Serenity ☕ <jspavithra20@gmail.com>",
       to: customerEmail,
       subject: "Sip Serenity Order Confirmed 🍃",
       text: `
@@ -47,8 +47,9 @@ Your tea is being prepared ☕
     });
 
   } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  console.log("MAIL ERROR:", err);   // 🔥 important
+  res.status(500).json({ error: err.message });
+}
 });
 
 module.exports = router;

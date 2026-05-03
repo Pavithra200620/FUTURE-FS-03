@@ -9,14 +9,14 @@ router.post("/", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "YOUR_GMAIL@gmail.com",
-        pass: "GMAIL_APP_PASSWORD"
+        user: "jspavithra20@gmail.com",
+        pass: "zvsbotbyseotqcvr"
       }
     });
 
     await transporter.sendMail({
-      from: email,
-      to: "info@sipserenity.com",
+      from:"jspavithra20@gmail.com" ,
+      to: "jspavithra20@gmail.com",
       subject: "New Contact Message ☕",
       text: `
 Name: ${name}
@@ -27,6 +27,7 @@ Message: ${message}
 
     res.json({ message: "Message sent successfully 📩" });
   } catch (err) {
+    console.log("MAIL ERROR:", err);  // ✅ debug
     res.status(500).json({ message: "Mail failed" });
   }
 });

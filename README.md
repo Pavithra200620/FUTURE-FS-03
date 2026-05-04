@@ -25,9 +25,8 @@ A full stack tea delivery web application built as my first project to understan
 ---
 
 ## 🚀 How to Run Locally
-
-### 🔹 Backend Setup
-```bash
+ 
+### Backend setup
 cd sivabackend
 npm install
 npm start
@@ -39,5 +38,5 @@ Just open the file in browser:
 sivafrontend/index.html
 
 
-###Live Demo
+### Live Demo
 Live Site: https://teadelivaryapp.netlify.app/

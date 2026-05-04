@@ -8,7 +8,7 @@ A full stack tea delivery web application built as my first project to understan
 
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Node.js, Express.js  
-- **Database:** MongoDB (Atlas)  
+- **Database:** MongoDB  
 - **Email Service:** Nodemailer  
 
 ---
